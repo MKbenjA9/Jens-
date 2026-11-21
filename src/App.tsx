@@ -31,6 +31,7 @@ const nav: { label: Section; icon: LucideIcon; phase: string }[] = [
 const emptyOverview: Overview = { products: 0, patterns: 0, technical_sheets: 0, measurement_sheets: 0, recent_products: [] }
 
 function App() {
+  const localOnly = window.location.hostname.endsWith('.github.io')
   const [section, setSection] = useState<Section>('Inicio')
   const [overview, setOverview] = useState<Overview>(emptyOverview)
   const [connected, setConnected] = useState(false)
@@ -38,11 +39,22 @@ function App() {
   const [patternToOpen, setPatternToOpen] = useState<number | null>(null)
 
   useEffect(() => {
+    if (localOnly) return
     fetch('/api/overview')
       .then((response) => { if (!response.ok) throw new Error(); return response.json() as Promise<Overview> })
       .then((data) => { setOverview(data); setConnected(true) })
       .catch(() => setConnected(false))
-  }, [section])
+  }, [section, localOnly])
+
+  if (localOnly) return <main style={{ minHeight: '100vh', display: 'grid', placeItems: 'center', padding: 24, background: '#f6f7fb' }}>
+    <section style={{ maxWidth: 620, padding: 36, borderRadius: 14, background: '#fff', boxShadow: '0 12px 36px #252c4410' }}>
+      <div className="brand-copy"><strong style={{ color: '#1b2340' }}>patronaje<span>pro</span></strong><small style={{ color: '#929bb6' }}>ESTUDIO TEXTIL</small></div>
+      <h1 style={{ marginTop: 32 }}>Esta aplicación se usa en el computador</h1>
+      <p style={{ color: '#697187', lineHeight: 1.7 }}>GitHub Pages solo publica la interfaz; no ejecuta la API ni guarda tus datos. Por eso aparecía el error 404. Descarga la versión local y ábrela en el computador donde se trabajará.</p>
+      <a href="https://github.com/MKbenjA9/Jens-/archive/refs/heads/main.zip" style={{ display: 'inline-block', padding: '12px 18px', borderRadius: 8, background: '#7566ef', color: '#fff', fontWeight: 600, textDecoration: 'none' }}>Descargar versión local</a>
+      <p style={{ marginTop: 22, color: '#858c9e', fontSize: 13, lineHeight: 1.7 }}>Descomprime el archivo, instala Python 3.10+ y Node.js 20.19+ y abre <strong>Iniciar Patronaje Pro.bat</strong>. Los moldes y productos se guardarán en ese computador.</p>
+    </section>
+  </main>
 
   return <div className="app-shell">
     <aside className="sidebar">

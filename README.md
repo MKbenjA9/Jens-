@@ -7,9 +7,15 @@ Aplicación local para gestionar patronaje y confección textil: productos, tall
 - Node.js 20.19+ o 22.12+
 - Python 3.10+
 
-## Inicio local
+## Inicio local en Windows
 
-Instala las dependencias de interfaz con `npm install` y las del servidor con `python -m pip install -r backend/requirements.txt`. Después, abre dos terminales en la carpeta del proyecto:
+Instala Node.js 20.19+ y Python 3.10+ una vez. Luego haz doble clic en **Iniciar Patronaje Pro.bat**. La primera vez instala las dependencias; después abre la aplicación en el navegador. Mantén abiertas las dos ventanas de servicio mientras la usas y ciérralas al terminar.
+
+Los datos permanecen en ese computador, en `data/patronaje.db`. Copia ese archivo para hacer una copia de seguridad.
+
+## Inicio manual
+
+Instala las dependencias de interfaz con `npm ci` y las del servidor con `python -m pip install -r backend/requirements.txt`. Después, abre dos terminales en la carpeta del proyecto:
 
 ```powershell
 python -m uvicorn backend.main:app --reload
@@ -21,11 +27,11 @@ npm run dev
 
 Abre la dirección local que muestra Vite. La base SQLite se crea automáticamente en `data/patronaje.db` al iniciar el servidor.
 
-## Publicación en GitHub Pages
+## GitHub Pages
 
-El workflow de GitHub Actions publica automáticamente la interfaz al hacer push a `main`. La dirección del sitio de proyecto será `https://mkbenja9.github.io/Jens-/` una vez habilitado Pages con origen **GitHub Actions**.
+El workflow de GitHub Actions publica automáticamente la interfaz al hacer push a `main`.
 
-GitHub Pages solo sirve archivos estáticos. Esta aplicación también necesita el servidor FastAPI y SQLite para guardar productos, moldes y fichas; esas funciones no estarán disponibles en Pages hasta alojar la API en un servidor externo y configurar el cliente para usar su URL. No cargues datos privados en una publicación pública.
+GitHub Pages solo sirve archivos estáticos y no ejecuta el servidor FastAPI, así que el enlace público no es la versión de trabajo. Usa el lanzador local para trabajar con productos, moldes y fichas; los datos se guardan en el equipo donde se inicia la aplicación.
 
 ## Notas de arquitectura
 
