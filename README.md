@@ -7,9 +7,9 @@ Aplicación local para gestionar patronaje y confección textil: productos, tall
 - Node.js 20.19+ o 22.12+
 - Python 3.10+
 
-## Inicio local en Windows
+## Inicio local
 
-Instala Node.js 20.19+ y Python 3.10+ una vez. Luego haz doble clic en **Iniciar Patronaje Pro.bat**. La primera vez instala las dependencias; después abre la aplicación en el navegador. Mantén abiertas las dos ventanas de servicio mientras la usas y ciérralas al terminar.
+Instala Node.js 20.19+ (o 22.12+) y Python 3.10+ una vez. Después, abre el lanzador de tu sistema: **Iniciar Patronaje Pro.bat** en Windows o **Iniciar Patronaje Pro.command** en macOS. La primera vez instala las dependencias y abre la aplicación en el navegador. Mantén abiertas las ventanas de servicio mientras la usas; en macOS, presiona Ctrl+C en Terminal para cerrarla.
 
 Los datos permanecen en ese computador, en `data/patronaje.db`. Copia ese archivo para hacer una copia de seguridad.
 

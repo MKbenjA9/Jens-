@@ -52,7 +52,7 @@ function App() {
       <h1 style={{ marginTop: 32 }}>Esta aplicación se usa en el computador</h1>
       <p style={{ color: '#697187', lineHeight: 1.7 }}>GitHub Pages solo publica la interfaz; no ejecuta la API ni guarda tus datos. Por eso aparecía el error 404. Descarga la versión local y ábrela en el computador donde se trabajará.</p>
       <a href="https://github.com/MKbenjA9/Jens-/archive/refs/heads/main.zip" style={{ display: 'inline-block', padding: '12px 18px', borderRadius: 8, background: '#7566ef', color: '#fff', fontWeight: 600, textDecoration: 'none' }}>Descargar versión local</a>
-      <p style={{ marginTop: 22, color: '#858c9e', fontSize: 13, lineHeight: 1.7 }}>Descomprime el archivo, instala Python 3.10+ y Node.js 20.19+ y abre <strong>Iniciar Patronaje Pro.bat</strong>. Los moldes y productos se guardarán en ese computador.</p>
+      <p style={{ marginTop: 22, color: '#858c9e', fontSize: 13, lineHeight: 1.7 }}>Descomprime el archivo, instala Python 3.10+ y Node.js 20.19+ y abre el lanzador de tu sistema: <strong>Iniciar Patronaje Pro.bat</strong> en Windows o <strong>Iniciar Patronaje Pro.command</strong> en macOS. Los moldes y productos se guardarán en ese computador.</p>
     </section>
   </main>
 
